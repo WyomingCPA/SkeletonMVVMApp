@@ -53,10 +53,7 @@ namespace SkeletonMVVMApp.Models
                 OnPropertyChanged();
             }
         }
-
         #endregion Page Properties
-
-
 
         public static MainWindowModel GetModel()
         {

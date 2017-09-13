@@ -23,15 +23,6 @@ namespace SkeletonMVVMApp.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-
-        public static CollectionViewSource view = new CollectionViewSource();
-
-        int currentPageIndex = 0;
-        int itemPerPage = 50;
-        int totalPage = 0;
-
-        public ObservableCollection<Accounts> AccountsList { get; set; }
-
         /// <summary>
         /// Gets or sets the main window model.
         /// </summary>
@@ -62,39 +53,7 @@ namespace SkeletonMVVMApp.ViewModel
             this.NavigateHomeCommand = new RelayCommand(NavigateHome);
             this.NavigateAccountsManageCommand = new RelayCommand(NavigateAccountsManagePage);
             this.NavigateLogCommand = new RelayCommand(NavigateLogPage);
-
-
-            List<Accounts> test = new List<Accounts>();
-            test.Add(new Accounts("test", "test", "test", "FireFoxProfile"));
-            test.Add(new Accounts("test", "test", "test", "FireFoxProfile"));
-            test.Add(new Accounts("test", "test", "test", "FireFoxProfile"));
-            test.Add(new Accounts("test", "test", "test", "FireFoxProfile"));
-            test.Add(new Accounts("test", "test", "test", "FireFoxProfile"));
-
-
-
-            AccountsList = new ObservableCollection<Accounts>(test.Select(b => new Accounts(b.Email, "83448344f", b.Country, b.FireFoxProfile)));
-            view.Source = AccountsList;
-            view.Filter += new FilterEventHandler(view_Filter);
-
         }
-
-        void view_Filter(object sender, FilterEventArgs e)
-        {
-            int index = AccountsList.IndexOf((Accounts)e.Item);
-
-            if (index >= itemPerPage * currentPageIndex && index < itemPerPage * (currentPageIndex + 1))
-            {
-                e.Accepted = true;
-            }
-            else
-            {
-                e.Accepted = false;
-            }
-        }
-
-
-
 
         #region Navigation
 
@@ -105,7 +64,6 @@ namespace SkeletonMVVMApp.ViewModel
         {
             Model._HomePage = new Uri("/SkeletonMVVMApp;component/Views/_HomePage.xaml", UriKind.Relative);
         }
-
         /// <summary>
         /// Navigates the get gadgets.
         /// </summary>

@@ -7,9 +7,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
-        Height="600"
-        Width="700"
-        Title="SkeletonMVVMApp v0.1"
+        Height="600" Width="800"
+        MinHeight="600" MinWidth="800"
+        Title="SkeletonMVVMApp v0.2"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
 
